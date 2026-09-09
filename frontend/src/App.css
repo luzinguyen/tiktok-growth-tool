@@ -2834,3 +2834,48 @@ main {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================================
+   IMPORT TIKTOK VIDEO
+========================================================= */
+
+.import-video-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+}
+
+.import-video-section input {
+  flex: 1;
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.import-video-section input:focus {
+  border-color: #111827;
+}
+
+.import-video-section button {
+  height: 46px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.import-video-section button:hover {
+  background: #000000;
+  transform: translateY(-1px);
+}

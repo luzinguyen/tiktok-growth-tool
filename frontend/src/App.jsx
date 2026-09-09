@@ -594,32 +594,26 @@ function App() {
   ======================================================= */
   useEffect(() => {
     Promise.all([
-      fetch("https://tiktok-growth-tool.onrender.com/api/dashboard/").then(
-        (res) => {
-          if (!res.ok) {
-            throw new Error("Failed to load dashboard");
-          }
-          return res.json();
-        },
-      ),
+      fetch(`${import.meta.env.VITE_API_URL}/api/dashboard/`).then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to load dashboard");
+        }
+        return res.json();
+      }),
 
-      fetch("https://tiktok-growth-tool.onrender.com/api/insights/").then(
-        (res) => {
-          if (!res.ok) {
-            throw new Error("Failed to load insights");
-          }
-          return res.json();
-        },
-      ),
+      fetch(`${import.meta.env.VITE_API_URL}/api/insights/`).then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to load insights");
+        }
+        return res.json();
+      }),
 
-      fetch("https://tiktok-growth-tool.onrender.com/api/videos/").then(
-        (res) => {
-          if (!res.ok) {
-            throw new Error("Failed to load videos");
-          }
-          return res.json();
-        },
-      ),
+      fetch(`${import.meta.env.VITE_API_URL}/api/videos/`).then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to load videos");
+        }
+        return res.json();
+      }),
     ])
       .then(([dashboardData, insightsData, videosData]) => {
         setDashboard(dashboardData);
@@ -906,15 +900,18 @@ function App() {
                 onClick={async () => {
                   if (!videoUrl.trim()) return;
 
-                  const response = await fetch("/api/videos/import/", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
+                  const response = await fetch(
+                    `${import.meta.env.VITE_API_URL}/api/videos/import/`,
+                    {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        video_url: videoUrl,
+                      }),
                     },
-                    body: JSON.stringify({
-                      video_url: videoUrl,
-                    }),
-                  });
+                  );
 
                   const data = await response.json();
 

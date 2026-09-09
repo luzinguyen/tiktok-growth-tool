@@ -131,4 +131,5 @@ MAILERS = {
 }
 CORS_ALLOWED_ORIGINS = [
     "https://tiktok-growth-tool-1.onrender.com",
+    "http://localhost:5173",
 ]
