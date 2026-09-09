@@ -594,12 +594,14 @@ function App() {
   ======================================================= */
   useEffect(() => {
     Promise.all([
-      fetch("/api/dashboard/").then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to load dashboard");
-        }
-        return res.json();
-      }),
+      fetch("https://tiktok-growth-tool.onrender.com/api/dashboard/").then(
+        (res) => {
+          if (!res.ok) {
+            throw new Error("Failed to load dashboard");
+          }
+          return res.json();
+        },
+      ),
 
       fetch("/api/insights/").then((res) => {
         if (!res.ok) {
