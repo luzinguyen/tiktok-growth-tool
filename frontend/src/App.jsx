@@ -915,7 +915,8 @@ function App() {
 
                   const data = await response.json();
 
-                  console.log(data);
+                  setVideoUrl("");
+                  setVideos((prev) => [data.video, ...prev]);
                 }}
               >
                 Import Video
