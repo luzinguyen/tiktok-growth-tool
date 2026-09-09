@@ -603,19 +603,23 @@ function App() {
         },
       ),
 
-      fetch("/api/insights/").then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to load insights");
-        }
-        return res.json();
-      }),
+      fetch("https://tiktok-growth-tool.onrender.com/api/insights/").then(
+        (res) => {
+          if (!res.ok) {
+            throw new Error("Failed to load insights");
+          }
+          return res.json();
+        },
+      ),
 
-      fetch("/api/videos/").then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to load videos");
-        }
-        return res.json();
-      }),
+      fetch("https://tiktok-growth-tool.onrender.com/api/videos/").then(
+        (res) => {
+          if (!res.ok) {
+            throw new Error("Failed to load videos");
+          }
+          return res.json();
+        },
+      ),
     ])
       .then(([dashboardData, insightsData, videosData]) => {
         setDashboard(dashboardData);
